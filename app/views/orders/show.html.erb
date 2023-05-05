@@ -8,6 +8,13 @@
     <h4>Thank you for your order!</h4>
   </div>
 
+  <% @order.line_items.each do |item|%>
+  <li>
+  <%= item.product.name %>
+  <%= item.quantity %>
+  <%=humanized_money_with_symbol item.item_price %>
+  </li>
+  <% end %>
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
 
 </section>
